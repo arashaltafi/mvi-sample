@@ -42,7 +42,7 @@ fun PagingScreen(
     LaunchedEffect(pagingItems.loadState.append) {
         if (pagingItems.loadState.append is LoadState.Loading) {
             bottomLoading = true
-            delay(1000L) // ensure at least 1 second of loading indicator
+            delay(2000L) // ensure at least 1 second of loading indicator
             // If append has finished after the delay, hide the indicator.
             if (pagingItems.loadState.append !is LoadState.Loading) {
                 bottomLoading = false
@@ -101,8 +101,20 @@ fun PagingScreen(
             }
         }
 
-        // When refresh is loading, show full-screen loading shimmers
+        // Handling refresh state (First Load), show full-screen loading shimmers
         if (pagingItems.loadState.refresh is LoadState.Loading) {
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(1),
+                contentPadding = PaddingValues(8.dp)
+            ) {
+                items(3) { // show 3 shimmer items (3 rows x 1 columns)
+                    LoadingShimmerEffect()
+                }
+            }
+        }
+
+        // Handling append state (Pagination), show full-screen loading shimmers
+        if (pagingItems.loadState.append is LoadState.Loading) {
             LazyVerticalGrid(
                 columns = GridCells.Fixed(1),
                 contentPadding = PaddingValues(8.dp)

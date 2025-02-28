@@ -9,9 +9,17 @@ import retrofit2.http.Query
 interface UserService: BaseService {
 
     @GET("test_paging/test_paging.php")
-    suspend fun getUsers(
+    suspend fun getUsersPaging(
         @Query("page_number") pageNumber: Int,
         @Query("page_size") pageSize: Int
+    ): Response<List<UserResponse>>
+
+    @GET("test_paging/test.php")
+    suspend fun getUsers(): Response<List<UserResponse>>
+
+    @GET("test_paging/test_detail.php")
+    suspend fun getUserDetail(
+        @Query("id") id: Int,
     ): Response<List<UserResponse>>
 
 }
