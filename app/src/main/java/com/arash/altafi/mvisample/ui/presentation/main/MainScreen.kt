@@ -9,12 +9,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.arash.altafi.mvisample.ui.presentation.celebrity.CelebrityScreen
+import com.arash.altafi.mvisample.ui.presentation.paging.PagingScreen
 import com.arash.altafi.mvisample.ui.presentation.user.UserScreen
 import kotlinx.coroutines.launch
 
 @Composable
 fun MainScreen(navController: NavHostController) {
-    val tabs = listOf("Users", "Celebrities")
+    val tabs = listOf("Users", "Celebrities", "Paging")
     val pagerState = rememberPagerState(
         pageCount = { tabs.size },
         initialPage = 0
@@ -48,6 +49,7 @@ fun MainScreen(navController: NavHostController) {
             when (page) {
                 0 -> UserScreen(navController)
                 1 -> CelebrityScreen(navController)
+                2 -> PagingScreen(navController)
             }
         }
     }

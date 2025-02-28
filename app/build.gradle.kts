@@ -66,6 +66,13 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
+    // Paging 3 & Paging Compose
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.compose)
+
+    // Swipe
+    implementation(libs.accompanist.swiperefresh)
+
     // Serialization
     implementation(libs.kotlinx.serialization.json)
 

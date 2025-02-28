@@ -4,10 +4,12 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import com.arash.altafi.mvisample.BuildConfig
 import com.arash.altafi.mvisample.data.api.CelebrityService
+import com.arash.altafi.mvisample.data.api.PagingService
 import com.arash.altafi.mvisample.data.api.UserService
 import com.arash.altafi.mvisample.data.repository.CelebrityRepository
 import com.arash.altafi.mvisample.data.repository.UserRepository
 import com.arash.altafi.mvisample.data.repository.DataStoreRepository
+import com.arash.altafi.mvisample.data.repository.PagingRepository
 import com.arash.altafi.mvisample.utils.EncryptionUtils
 import com.arash.altafi.mvisample.utils.JsonUtils
 import dagger.Module
@@ -33,6 +35,12 @@ object RepositoryModule {
     fun provideUserRepository(
         userService: UserService,
     ) = UserRepository(userService)
+
+    @Singleton
+    @Provides
+    fun providePagingRepository(
+        userService: PagingService,
+    ) = PagingRepository(userService)
 
     @Singleton
     @Provides

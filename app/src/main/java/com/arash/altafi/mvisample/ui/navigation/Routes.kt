@@ -27,6 +27,11 @@ sealed interface Route {
     }
 
     @Serializable
+    data object Paging : Route {
+        override val route: String = ".ui.navigation.Route.Paging"
+    }
+
+    @Serializable
     data class ImageScreen(var title: String, val imageUrl: String) : Route {
         override val route: String = ".ui.navigation.Route.ImageScreen"
     }

@@ -13,6 +13,7 @@ import androidx.navigation.toRoute
 import com.arash.altafi.mvisample.ui.component.ImageScreen
 import com.arash.altafi.mvisample.ui.presentation.celebrity.CelebrityScreen
 import com.arash.altafi.mvisample.ui.presentation.main.MainScreen
+import com.arash.altafi.mvisample.ui.presentation.paging.PagingScreen
 import com.arash.altafi.mvisample.ui.presentation.user.UserScreen
 import com.arash.altafi.mvisample.ui.theme.MVISampleTheme
 
@@ -35,6 +36,9 @@ fun AppNavigation() {
                 }
                 composable<Route.Celebrity> {
                     CelebrityScreen(navController)
+                }
+                composable<Route.Paging> {
+                    PagingScreen(navController)
                 }
                 composable<Route.ImageScreen> { backStackEntry: NavBackStackEntry ->
                     val args = backStackEntry.toRoute<Route.ImageScreen>()
