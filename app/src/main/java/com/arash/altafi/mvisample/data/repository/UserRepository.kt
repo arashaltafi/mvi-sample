@@ -9,7 +9,7 @@ class UserRepository @Inject constructor(
 ) : BaseRepository() {
 
     fun getUsers(pageNumber: Int, pageSize: Int) = callApi {
-        service.getUsers(pageNumber, pageSize)
+        service.getUsersPaging(pageNumber, pageSize)
     }
 
 }

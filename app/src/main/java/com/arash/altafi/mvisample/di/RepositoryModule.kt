@@ -6,10 +6,13 @@ import com.arash.altafi.mvisample.BuildConfig
 import com.arash.altafi.mvisample.data.api.CelebrityService
 import com.arash.altafi.mvisample.data.api.PagingService
 import com.arash.altafi.mvisample.data.api.UserService
+import com.arash.altafi.mvisample.data.dataSource.TestDataSource
+import com.arash.altafi.mvisample.data.db.TestDetailDao
 import com.arash.altafi.mvisample.data.repository.CelebrityRepository
 import com.arash.altafi.mvisample.data.repository.UserRepository
 import com.arash.altafi.mvisample.data.repository.DataStoreRepository
 import com.arash.altafi.mvisample.data.repository.PagingRepository
+import com.arash.altafi.mvisample.data.repository.TestRepository
 import com.arash.altafi.mvisample.utils.EncryptionUtils
 import com.arash.altafi.mvisample.utils.JsonUtils
 import dagger.Module
@@ -41,6 +44,13 @@ object RepositoryModule {
     fun providePagingRepository(
         userService: PagingService,
     ) = PagingRepository(userService)
+
+    @Singleton
+    @Provides
+    fun provideTestRepository(
+        testDataSource: TestDataSource,
+        userDao: TestDetailDao,
+    ) = TestRepository(testDataSource, userDao)
 
     @Singleton
     @Provides

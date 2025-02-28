@@ -2,6 +2,7 @@ package com.arash.altafi.mvisample.di
 
 import com.arash.altafi.mvisample.data.api.CelebrityService
 import com.arash.altafi.mvisample.data.api.PagingService
+import com.arash.altafi.mvisample.data.api.TestService
 import com.arash.altafi.mvisample.data.api.UserService
 import dagger.Module
 import dagger.Provides
@@ -18,6 +19,11 @@ object ServiceModule {
     @Provides
     fun provideUserService(retrofit: Retrofit): UserService =
         retrofit.create(UserService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideTestService(retrofit: Retrofit): TestService =
+        retrofit.create(TestService::class.java)
 
     @Singleton
     @Provides

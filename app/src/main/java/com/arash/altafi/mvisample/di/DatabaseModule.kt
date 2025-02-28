@@ -3,7 +3,7 @@ package com.arash.altafi.mvisample.di
 import android.content.Context
 import androidx.room.Room
 import com.arash.altafi.mvisample.data.db.AppDatabase
-import com.arash.altafi.mvisample.data.db.FavoriteUserDao
+import com.arash.altafi.mvisample.data.db.TestDetailDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +25,7 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideFavoriteUserDao(database: AppDatabase): FavoriteUserDao {
-        return database.favoriteUserDao()
+    fun provideTestDetailDao(database: AppDatabase): TestDetailDao {
+        return database.testDetailDao()
     }
 }
