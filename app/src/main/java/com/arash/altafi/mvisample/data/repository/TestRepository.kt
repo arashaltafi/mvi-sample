@@ -32,11 +32,7 @@ class TestRepository @Inject constructor(
 
     // API 3: Detail – first check Room cache; if missing, call API and then save
     suspend fun getUserDetail(id: String): TestDetailEntity? {
-        val cached = userDao.getTestById(id)
-        return if (cached != null) {
-            cached
-        } else {
-            remoteDataSource.fetchUserDetail(id)?.also { userDao.insertTest(it) }
-        }
+        return userDao.getTestById(id) ?: remoteDataSource.fetchUserDetail(id)
+            ?.also { userDao.insertTest(it) }
     }
 }
