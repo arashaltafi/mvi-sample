@@ -110,8 +110,7 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.messaging)
-    implementation(libs.firebase.messaging.ktx)
-    implementation(libs.firebase.common.ktx)
+    implementation(libs.firebase.common)
 
     // Tink for encryption
     implementation(libs.tink.android)
